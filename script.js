@@ -1,4 +1,4 @@
-const diskList = document.getElementsByClassName('disk')
+const diskList = document.getElementsByTagName('disk')
 
 /*
 diskArray.forEach((disk) => {
