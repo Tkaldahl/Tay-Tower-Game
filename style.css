@@ -1,0 +1,94 @@
+/* Fonts are font-family: 'Bungee Shade', cursive (for header)
+font-family: 'Tillana', cursive (for body) */
+
+body {
+    display: block;
+}
+h1 {
+    font-family: 'Bungee Shade', cursive;
+    text-align: center;
+}
+
+main {
+    display: grid;
+    grid-template-rows:  2fr 4fr;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+    width: 100%;
+    min-height: 600px;
+    margin: 0 auto;
+}
+instructions {
+    background: grey;
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+h2 {
+    padding: 0px 0px 0px 20px;
+    font-family: 'Tillana', cursive;
+}
+
+ul {
+    list-style-type: square;
+}
+li {
+    font-family: 'courier', monospace;
+}
+
+gameBoard {
+    grid-area: 2 / 1 / 3 / 2;
+    width: 80%;
+    height: 100%;
+    justify-self: center;
+    background: rgb(177, 194, 211);
+}
+
+pegs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    min-height: 100%
+}
+.peg {
+    text-align: center;
+    justify-content: flex-end;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.disk {
+    border: solid;
+    border-radius: 5px;
+    height: 40px;
+}
+
+#redDisk {
+    background: red;
+    border-color: red;
+    width: 90%;
+}
+
+#orangeDisk {
+    background: orange;
+    border-color: orange;
+    width: 75%;
+}
+
+#yellowDisk {
+    background: yellow;
+    border-color: yellow;
+    width: 60%;
+}
+
+#greenDisk {
+    background: green;
+    border-color: green;
+    width: 45%;
+}
+
+#blueDisk {
+    background: blue;
+    border-color: blue;
+    width: 30%;
+}
