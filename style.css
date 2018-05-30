@@ -43,20 +43,31 @@ gameBoard {
     background: rgb(177, 194, 211);
 }
 
-pegs {
+pegGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     min-height: 100%
 }
-.peg {
+peg {
     text-align: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     display: inline-flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
 }
 
+#peg1 {
+    background: rgba(128, 128, 128, 0.473);
+}
+
+#peg2 {
+    background: rgba(128, 128, 128, 0.897);
+}
+
+#peg3 {
+    background: rgba(128, 128, 128, 0.473);
+}
 .disk {
     border: solid;
     border-radius: 5px;
