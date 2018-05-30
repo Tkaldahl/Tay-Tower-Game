@@ -68,37 +68,37 @@ peg {
 #peg3 {
     background: rgba(128, 128, 128, 0.473);
 }
-.disk {
+disk {
     border: solid;
     border-radius: 5px;
     height: 40px;
 }
 
-#redDisk {
+.redDisk {
     background: red;
     border-color: red;
     width: 90%;
 }
 
-#orangeDisk {
+.orangeDisk {
     background: orange;
     border-color: orange;
     width: 75%;
 }
 
-#yellowDisk {
+.yellowDisk {
     background: yellow;
     border-color: yellow;
     width: 60%;
 }
 
-#greenDisk {
+.greenDisk {
     background: green;
     border-color: green;
     width: 45%;
 }
 
-#blueDisk {
+.blueDisk {
     background: blue;
     border-color: blue;
     width: 30%;
