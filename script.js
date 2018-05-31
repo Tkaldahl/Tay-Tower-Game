@@ -10,7 +10,6 @@ Not currently working. Would like to refactor toward this.
 var diskEvents = function () {
   for (var i = 0; i < diskList.length; i++) {
     diskList[i].addEventListener('click', selectDisk)
-//    diskList[i].addEventListener('transformend', nextTransition) // For adding the bounce animation.
     diskList[i].addEventListener('dragstart', dragFunction) // For letting users drag the disk.
     diskList[i].addEventListener('dragend', dragEndEvent) // Tells what to do on drag release.
   }
@@ -26,6 +25,7 @@ var selectDisk = function () {
   currentDiskId = diskParentChildrenArray[(diskParentChildrenArray.length - 1)].id
   currentDisk = diskParentChildrenArray.namedItem(currentDiskId)
   currentDiskColor = currentDisk.className
+  currentDisk.classList.add('selected')
   event.stopPropagation()
 }
 diskEvents()
@@ -56,9 +56,8 @@ var topDiskColor = null
 
 var moveDisk = function () {
   document.getElementById(pegId).appendChild(currentDisk)
-  pegChildren[(pegChildren.length - 1)].classList.add('drop') // adds the class without transition
-  // currentDisk.classList.add('drop')
-  // drop(currentDisk) Starts drop and bounce animation. Not working
+  pegChildren[(pegChildren.length - 1)].classList.remove('selected') // removes selected class to stop wiggling animation
+  pegChildren[(pegChildren.length - 1)].classList.add('drop') // adds the drop class for the bounce animation
 }
 
 /*
@@ -98,33 +97,6 @@ var setTopDiskId = function () {
 
 pegEvents()
 // Adds event listeners to pegs so their id can be saved in pegId for assignment.
-
-/* function drop (disk) {
-  disk.classList.add('drop')
-  console.log(disk.classList)
-}
-*/
-
-/*
-function nextTransition () {
-  var mostRecentClass = this.classList[(this.classList.length - 1)]
-  if (mostRecentClass === 'drop') {
-    this.classList.add('bounce1')
-  } else if (mostRecentClass === 'bounce1') {
-    this.classList.add('bounce2')
-  } else if (mostRecentClass === 'bounce2') {
-    this.classList.add('bounce3')
-  } else if (mostRecentClass === 'bounce3') {
-    this.classList.add('bounce4')
-  } else if (mostRecentClass === 'bounce4') {
-    this.classList.add('bounce5')
-  } else {
-    this.classList.remove('bounce4', 'bounce5', 'bounce3', 'bounce2', 'bounce1', 'drop')
-  }
-}
-*/
-
-// loops through all the css classes to give currentDisk, full animation.
 
 function dragFunction () {
   this.classList.add('invisible')
