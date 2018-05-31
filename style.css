@@ -72,7 +72,7 @@ disk {
     border: solid;
     border-radius: 5px;
     height: 40px;
-    transition: all .1s;
+    /* transition: all .1s; */
 }
 
 .red {
@@ -105,37 +105,58 @@ disk {
     width: 30%;
 }
 
+@keyframes bounce {
+    0% {
+        margin-bottom: 60px;
+        transform: rotate(8deg);
+    }
+    16.7% {
+        margin-bottom: 6px;
+        transition: all 0.9s;
+        /* transition-timing-function: cubic-bezier(.66,-0.07,1,.37); */
+    }
+    33.4% {
+        transform: rotate(-10deg);
+        margin-bottom: 6px;
+        transition: all .2s;
+    }
+    50% {
+        margin-bottom: 17px;
+        transition: all 0.1s;
+        /* transition-timing-function: cubic-bezier(.11,.87,.48,1.02); */
+    }
+    66.7% {
+        margin-bottom: 6px;
+        transition: all 0.1s;
+        /* transition-timing-function: cubic-bezier(.66,-0.07,1,.37); */
+    }
+    83.4% {
+        margin-bottom: 2px;
+        transform: rotate(2deg);
+        transition: all 0.2s;
+    }
+    100% {
+        margin-bottom: 0px;
+        transform: rotate(0deg);
+    }
+}
+
 .drop {
-    margin-bottom: 200px;
-    transform: rotate(8deg);
-    transition: margin-bottom 0.5s;
-}
-
-.bounce1 {
-    margin-bottom: 6px;
-    transition: all 0.9s;
-    transition-timing-function: cubic-bezier(.66,-0.07,1,.37);
-}
-
-.bounce2 {
-    margin-bottom: 4px;
-    transform: rotate(-5deg);
-    transition: all 0.5s;
-}
-
-.bounce3 {
-    margin-bottom: 2px;
-    transform: rotate(2deg);
-    transition: all 0.5s;
-    transition-timing-function: ease-in;
-}
-
-.rest {
     margin-bottom: 0px;
-    transform: rotate(0deg);
+    animation-name: bounce;
+    animation-duration: 0.5s;
 }
 
-.invisible {
+/* .invisible {
     background-color: rgba( 75, 75, 75, 0);
-    border-color: rgba( 75, 75, 75, 0);
+    border-color: rgba( 75, 75, 75, 0); */
+    /* animation-name: borderPulse */
 }
+
+/* @keyframes borderPulse {
+    from {border-color: rgba(0, 0, 255, 1)}
+    to {border-color: rgba(0, 0, 255, 0)}
+}
+
+I'd like to be able to make the dragged disks pulse
+*/
