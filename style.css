@@ -74,31 +74,31 @@ disk {
     height: 40px;
 }
 
-.redDisk {
+.red {
     background: red;
     border-color: red;
     width: 90%;
 }
 
-.orangeDisk {
+.orange {
     background: orange;
     border-color: orange;
     width: 75%;
 }
 
-.yellowDisk {
+.yellow {
     background: yellow;
     border-color: yellow;
     width: 60%;
 }
 
-.greenDisk {
+.green {
     background: green;
     border-color: green;
     width: 45%;
 }
 
-.blueDisk {
+.blue {
     background: blue;
     border-color: blue;
     width: 30%;

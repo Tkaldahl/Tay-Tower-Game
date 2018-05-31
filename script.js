@@ -13,6 +13,7 @@ var diskEvents = function () {
   }
 }
 
+var currentDiskColor = null
 var currentDisk = null
 var currentDiskId = null
 var diskParentChildrenArray = null
@@ -21,6 +22,8 @@ var selectDisk = function () {
   diskParentChildrenArray = this.parentElement.children
   currentDiskId = diskParentChildrenArray[(diskParentChildrenArray.length - 1)].id
   currentDisk = diskParentChildrenArray.namedItem(currentDiskId)
+  currentDiskColor = currentDisk.className
+  event.stopPropagation()
 }
 diskEvents()
 // Adds event listeners to disks so that when clicked, they save the id of the top disk on their stack in var currentDiskId.
@@ -33,9 +36,11 @@ var pegEvents = function () {
   }
 }
 
-var topDiskId = null
+
 var pegChildren = null
 var pegId = null
+var topDiskId = null
+var topDiskColor = null
 /*
 pegChildren[(pegChildren.length - 1)].id gives us the id value of the top-most disk on the stack
 currentDisk.id gives us the id of the disk we're holding to compare to the topmost disk of the chosen peg
@@ -46,25 +51,30 @@ var moveDisk = function () {
 
 var selectPegId = function () {
   pegChildren = this.children
-  topDiskId = pegChildren[(pegChildren.length - 1)].id
+  topDiskId = setTopDiskId()
   pegId = this.id
   if (parseInt(topDiskId) > parseInt(currentDiskId)) {
     moveDisk()
-  } else { console.log('error') }
-}
-/* if (currentDisk === null) {
-    return
+  } else if (topDiskId === '0') {
+    moveDisk()
   } else {
-  pegId = this.id
-  pegChildren = document.getElementById(pegId).children
-  topDiskId = pegChildren[(pegChildren.length - 1)].id
-  /* if (topDiskId < currentDisk.id) {
-      console.log('error')
-    } else {
-  moveDisk()
+    topDiskColor = pegChildren.namedItem(topDiskId).className
+    alert(`The ${currentDiskColor} disk is too big to go on top of the ${topDiskColor} disk`)
+  }
 }
- }
-} */
 
+var setTopDiskId = function () {
+  if (pegChildren.length === 0) {
+    return '0'
+  } else {
+    return pegChildren[(pegChildren.length - 1)].id
+  }
+}
+
+/*    var preliminaryId = pegChildren[(pegChildren.length - 1)].id
+  if (parseInt(preliminaryId) > 0) {
+    return preliminaryId
+  } else { return 1 }
+} */
 pegEvents()
 // Adds event listeners to pegs so their id can be saved in pegId for assignment.
