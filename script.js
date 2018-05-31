@@ -26,7 +26,11 @@ var selectDisk = function () {
   event.stopPropagation()
 }
 diskEvents()
-// Adds event listeners to disks so that when clicked, they save the id of the top disk on their stack in var currentDiskId.
+/*
+Adds event listeners to disks.
+When clicked, they save the id of the top-most disk of their parent peg their stack in var currentDiskId.
+That id is translated into its className (red, orange, yellow, green, or blue) and stored in currentDiskColor in case we need to give the user an error message.
+*/
 
 const pegList = document.getElementsByClassName('peg')
 
@@ -36,26 +40,30 @@ var pegEvents = function () {
   }
 }
 
+/*
+Adds event listener for the pegs. When the user clicks a peg, we want to do the following:
+
+*/
 
 var pegChildren = null
 var pegId = null
 var topDiskId = null
 var topDiskColor = null
-/*
-pegChildren[(pegChildren.length - 1)].id gives us the id value of the top-most disk on the stack
-currentDisk.id gives us the id of the disk we're holding to compare to the topmost disk of the chosen peg
-*/
+
 var moveDisk = function () {
   document.getElementById(pegId).appendChild(currentDisk)
 }
+
+/*
+moveDisk is the function we will use if the move attempted is legal.
+*/
 
 var selectPegId = function () {
   pegChildren = this.children
   topDiskId = setTopDiskId()
   pegId = this.id
-  if (parseInt(topDiskId) > parseInt(currentDiskId)) {
-    moveDisk()
-  } else if (topDiskId === '0') {
+  if (currentDisk === null) {
+  } else if (parseInt(topDiskId) > parseInt(currentDiskId)) {
     moveDisk()
   } else {
     topDiskColor = pegChildren.namedItem(topDiskId).className
@@ -63,18 +71,23 @@ var selectPegId = function () {
   }
 }
 
+/*
+selectPegId fires on the click event. It does the following in order:
+1. Assigns values to pegChildren, topDiskId, and pegId for comparison. 
+topDiskId needs its own function because sometimes the peg has no children giving pegChildren a value of []. In this case, we set the value of topDiskId to be arbitrarily large.
+1. If no disk is selected, do nothing
+2. Else if a disk is selected, compare that disk size (currentDiskId) to the topmost disk within the peg (topDiskId defined below)
+3. When currentDiskId < topDiskId we want to move the currentDisk 'into' the selected peg using moveDisk()
+4. When currentDiskId > topDiskId we want to display an error message telling the user why they cannot move into that peg
+*/
+
 var setTopDiskId = function () {
   if (pegChildren.length === 0) {
-    return '0'
+    return '999999999'
   } else {
     return pegChildren[(pegChildren.length - 1)].id
   }
 }
 
-/*    var preliminaryId = pegChildren[(pegChildren.length - 1)].id
-  if (parseInt(preliminaryId) > 0) {
-    return preliminaryId
-  } else { return 1 }
-} */
 pegEvents()
 // Adds event listeners to pegs so their id can be saved in pegId for assignment.
