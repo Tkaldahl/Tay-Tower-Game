@@ -10,8 +10,9 @@ Not currently working. Would like to refactor toward this.
 var diskEvents = function () {
   for (var i = 0; i < diskList.length; i++) {
     diskList[i].addEventListener('click', selectDisk)
-    diskList[i].addEventListener('dragstart', dragFunction) // For letting users drag the disk.
+    /* diskList[i].addEventListener('dragstart', dragFunction) // For letting users drag the disk.
     diskList[i].addEventListener('dragend', dragEndEvent) // Tells what to do on drag release.
+    Would like to add this in later for a drag and drop capability on the disks. */
   }
 }
 
@@ -41,7 +42,7 @@ const pegList = document.getElementsByClassName('peg')
 var pegEvents = function () {
   for (var i = 0; i < pegList.length; i++) {
     pegList[i].addEventListener('click', selectPegId)
-    pegList[i].addEventListener('ondrop', dropHandler)
+    // pegList[i].addEventListener('ondrop', dropHandler)
   }
 }
 
@@ -99,6 +100,7 @@ var setTopDiskId = function () {
 pegEvents()
 // Adds event listeners to pegs so their id can be saved in pegId for assignment.
 
+/*
 function dragFunction () {
   this.classList.add('invisible')
   console.log(`you picked up ${this}`)
@@ -111,3 +113,6 @@ function dropHandler () {
 function dragEndEvent () {
   this.classList.remove('invisible')
 }
+
+Would like to add this in later for a drag and drop capability on the disks.
+*/

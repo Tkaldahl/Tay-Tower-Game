@@ -1,12 +1,36 @@
-/* Fonts are font-family: 'Bungee Shade', cursive (for header)
+/* Fonts are font-family: 'Bowlby One SC', cursive (for header)
 font-family: 'Tillana', cursive (for body) */
 
 body {
     display: block;
+    background: rgb(243, 118, 104);
+}
+header {
+    line-height: 1;
+    font-family: 'Bowlby One SC', cursive;
+    text-align: center;
+    color: rgb(75, 117, 99);
+    text-decoration-line: underline;
+    margin-bottom: 20px
 }
 h1 {
-    font-family: 'Bungee Shade', cursive;
-    text-align: center;
+    margin: 20px 0px 0px 0px;
+    font-size: 55px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 43px;
+}
+
+h3 {
+    font-size: 60px;
+    margin: 0;
+}
+
+h4 {
+    font-size: 75px;
+    margin: 0;
 }
 
 main {
@@ -19,28 +43,37 @@ main {
     margin: 0 auto;
 }
 instructions {
-    background: grey;
     grid-area: 1 / 1 / 2 / 2;
+    background: #A3CBF1;
+    border-radius: 10px;
+    color: #423C40;
+    font-family: 'Tillana', cursive;
+    width: 90%;
+    justify-self: center;
 }
 
-h2 {
+instructions h2 {
     padding: 0px 0px 0px 20px;
-    font-family: 'Tillana', cursive;
+    text-decoration: underline;
 }
 
 ul {
     list-style-type: square;
 }
-li {
+/* li {
     font-family: 'courier', monospace;
-}
+}*/
 
 gameBoard {
     grid-area: 2 / 1 / 3 / 2;
     width: 80%;
     height: 100%;
     justify-self: center;
-    background: rgb(177, 194, 211);
+    background: #79BFA1;
+    border: solid #423C40;
+    border-radius: 5px;
+    max-width: 800px;
+    min-width: 600px;
 }
 
 pegGrid {
@@ -57,17 +90,10 @@ peg {
     align-items: center;
 }
 
-#peg1 {
-    background: rgba(128, 128, 128, 0.473);
-}
-
 #peg2 {
-    background: rgba(128, 128, 128, 0.897);
+    background: rgba(75, 117, 99, 0.7);
 }
 
-#peg3 {
-    background: rgba(128, 128, 128, 0.473);
-}
 disk {
     border: solid;
     border-radius: 5px;
@@ -166,4 +192,46 @@ disk {
     animation-name: bounce;
     animation-duration: 0.5s;
 }
-/* drop currently has a bug where if dropped into the peg it's already placed in, currentDisk loops the bounce animation */
+
+footer {
+    background: #A3CBF1;
+    border-radius: 10px;
+    color: #423C40;
+    width: 90%;
+    margin: 35px auto;
+    font-family: 'Tillana', cursive;
+}
+
+footer h2 {
+    padding: 0px 20px 0px 20px;
+    text-decoration: underline;
+}
+
+p {
+    padding: 0px 20px 10px 20px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 50px;
+    width: 23px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+
+.fa-instagram {
+    background: rgb(236, 62, 43);
+    color: white;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
