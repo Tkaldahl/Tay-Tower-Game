@@ -25,6 +25,7 @@ var selectDisk = function () {
   currentDiskId = diskParentChildrenArray[(diskParentChildrenArray.length - 1)].id
   currentDisk = diskParentChildrenArray.namedItem(currentDiskId)
   currentDiskColor = currentDisk.className
+  currentDisk.classList.remove('drop') // keeps a disk from having both 'drop' and 'selected' classes. If a block has both, it will repeat the drop animation infinitely.
   currentDisk.classList.add('selected')
   event.stopPropagation()
 }
@@ -57,7 +58,7 @@ var topDiskColor = null
 var moveDisk = function () {
   document.getElementById(pegId).appendChild(currentDisk)
   pegChildren[(pegChildren.length - 1)].classList.remove('selected') // removes selected class to stop wiggling animation
-  pegChildren[(pegChildren.length - 1)].classList.add('drop') // adds the drop class for the bounce animation
+  pegChildren[(pegChildren.length - 1)].classList.add('drop') // adds the drop class for the drop animation
 }
 
 /*
@@ -72,8 +73,8 @@ var selectPegId = function () {
   } else if (parseInt(topDiskId) >= parseInt(currentDiskId)) {
     moveDisk()
   } else {
-    topDiskColor = pegChildren.namedItem(topDiskId).className
-    alert(`The ${currentDiskColor} disk is too big to go on top of the ${topDiskColor} disk`)
+    topDiskColor = pegChildren.namedItem(topDiskId).classList[0]
+    alert(`The ${currentDiskColor} block is too big to go on top of the ${topDiskColor} block`)
   }
 }
 
@@ -89,7 +90,7 @@ topDiskId needs its own function because sometimes the peg has no children givin
 
 var setTopDiskId = function () {
   if (pegChildren.length === 0) {
-    return '999999999'
+    return '999999999' // arbitrarily large number so that any size block can be dropped into an empty tower. 
   } else {
     return pegChildren[(pegChildren.length - 1)].id
   }
