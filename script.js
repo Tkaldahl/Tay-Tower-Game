@@ -8,16 +8,18 @@ Not currently working. Would like to refactor toward this.
 */
 
 var diskIdArray = []
-var diskInsert = null
 
 function startGame () {
   document.querySelector('startButton').classList.add('recede')
   for (var i = 0; i < diskList.length; i++) {
+    diskList[i].classList.remove('pregame')
+  }
+  for (var i = 0; i < diskList.length; i++) {
     diskIdArray.push(diskList[i].id)
   }
   diskIdArray.sort(function (a, b) { return b - a })
-  for (i = 0; i < diskIdArray.length; i++) {
-    var id = diskIdArray[i]
+  for (var y = 0; y < diskIdArray.length; y++) {
+    var id = diskIdArray[y]
     console.log(id)
     for (var x = 0; x < diskIdArray.length; x++) {
       if (id === diskList[x].id) {
@@ -27,8 +29,7 @@ function startGame () {
     }
   }
 }
-// a
-// this for loop drops each disk into the first peg.
+// this function makes the start button drop each disk into the first peg with the drop animation.
 
 function diskEvents () {
   for (var i = 0; i < diskList.length; i++) {
@@ -96,10 +97,11 @@ var selectPegId = function () {
   if (currentDisk === null) {
   } else if (parseInt(topDiskId) >= parseInt(currentDiskId)) {
     moveDisk()
-    /* if (document.getElementById(pegId).children.length === 5 && pegId !== 'peg1') {
+    if (document.getElementById(pegId).children.length === 5 && pegId !== 'peg1') {
       alert('VICTORY!')
+      document.querySelector('startButton p').innerHTML = `Can you complete the other tower? <br><b>Play Again</b>`
+      document.querySelector('startButton').classList.remove('recede') // These two lines change the startButton to read 'Play again?' and brings it back up front.
     }
-    Victory Alert. Would prefer to have a div element gently pop up in game rather than on browser. */
   } else {
     topDiskColor = pegChildren.namedItem(topDiskId).classList[0]
     alert(`The ${currentDiskColor} block is too big to go on top of the ${topDiskColor} block`)

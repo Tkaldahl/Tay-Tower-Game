@@ -26,21 +26,20 @@
         </ul>
     </instructions>
     <gameBoard>
-        <startButton type="button" onclick="startGame()" >Welcome To Tay's Tenacity Testing Towers! <br>START</startButton>
+        <startButton type="button" onclick="startGame()">
+            <p>Welcome To Tay's Tenacity Testing Towers! <br><b>START</b></p>
+        </startButton>
         <pegGrid>
             <peg class="peg" id="peg1">
-                
-                <disk class="blue" id="6" draggable="true"></disk>
+                <disk class="red pregame" id="10" draggable="false"></disk>
+                <disk class="orange pregame" id="9" draggable="false"></disk>
             </peg>
-
             <peg class="peg" id="peg2">
-                <disk class="red" id="10" draggable="true"></disk>
-                <disk class="orange" id="9" draggable="true"></disk>
-                <disk class="yellow" id="8" draggable="true"></disk>
-                <disk class="green" id="7" draggable="true"></disk>
+                <disk class="yellow pregame" id="8" draggable="false"></disk>
             </peg>
-
             <peg class="peg" id="peg3">    
+                <disk class="green pregame" id="7" draggable="false"></disk>
+                <disk class="blue pregame" id="6" draggable="false"></disk>
             </peg>
         </pegGrid>
     </gameBoard>
@@ -49,9 +48,9 @@
        <h2>Meet The Designer</h2>
        <p>Thank you for playing my game! I'm brand new to development and this page is the product of two weeks intensive learning at General Assembly's Web Developer Intensive Boot Camp. The game is powered by Javascript which you can <a target="_blank" href="https://github.com/Tkaldahl/Tay-Tower-Game/blob/master/script.js"><b>view here</b></a>.</p>
        <p>The best place to get to know me is on social media! Hint: I'm most active on Instagram</p>
-       <a href="https://www.facebook.com/taylor.kaldahl/" class="fa fa-facebook"></a>
-       <a href="https://www.instagram.com/taylorkaldahl/" class="fa fa-instagram"></a>
-       <a href="www.linkedin.com/in/the-great-taylor-kaldahl/" class="fa fa-linkedin"></a>
+       <a href="https://www.facebook.com/taylor.kaldahl/" target="_blank" class="fa fa-facebook"></a>
+       <a href="https://www.instagram.com/taylorkaldahl/" target="_blank" class="fa fa-instagram"></a>
+       <a href="https://www.linkedin.com/in/the-great-taylor-kaldahl/" target="_blank" class="fa fa-linkedin"></a>
 
        <!-- If you have any ideas for improvements, find bugs, or just want to drop a compliment (I love compliments) feel free to drop them in the box below! 
         <form> feedback </form>-->

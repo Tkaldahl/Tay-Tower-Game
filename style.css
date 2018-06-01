@@ -16,21 +16,25 @@ header {
 h1 {
     margin: 20px 0px 0px 0px;
     font-size: 55px;
+    text-shadow: 3px 1px #bf584d;
 }
 
 h2 {
     margin: 0;
     font-size: 43px;
+    text-shadow: 3px 1px #bf584d;
 }
 
 h3 {
     font-size: 60px;
     margin: 0;
+    text-shadow: 3px 1px #bf584d;
 }
 
 h4 {
     font-size: 75px;
     margin: 0;
+    text-shadow: 3px 1px #bf584d;
 }
 
 main {
@@ -50,11 +54,13 @@ instructions {
     font-family: 'Tillana', cursive;
     width: 90%;
     justify-self: center;
+    box-shadow: 11px -6px #bf584d;
 }
 
 instructions h2 {
     padding: 0px 0px 0px 20px;
     text-decoration: underline;
+    text-shadow: 2px -1px #6d88a0;
 }
 
 ul {
@@ -80,17 +86,23 @@ gameBoard {
 startButton {
     position: absolute;
     left: 40%;
-    right: 40%;
-    width: 20%;
     top: 154px;
+    width: 20%;
+    height: 25%;
     z-index: 1;
     border: solid;
-    border-radius: 15px;
     text-align: center;
+    border-radius: 15px;
     background: rgb(124, 166, 206);
+    transition: 1s;
+}
+
+startButton p {
+    vertical-align: center;
 }
 
 .recede {
+    top: 120px;
     z-index: -1;
     opacity: 0;
     transition: 1s;
@@ -212,6 +224,11 @@ disk {
     animation-duration: 0.5s;
 }
 
+startButton:hover {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+}
+
 footer {
     background: #A3CBF1;
     border-radius: 10px;
@@ -219,11 +236,13 @@ footer {
     width: 90%;
     margin: 35px auto;
     font-family: 'Tillana', cursive;
+    box-shadow: 11px -6px #bf584d;
 }
 
 footer h2 {
     padding: 0px 20px 0px 20px;
     text-decoration: underline;
+    text-shadow: 2px -1px #6d88a0;
 }
 
 p {
