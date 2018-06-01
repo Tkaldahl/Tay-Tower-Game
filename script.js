@@ -7,7 +7,30 @@ diskArray.forEach((disk) => {
 Not currently working. Would like to refactor toward this.
 */
 
-var diskEvents = function () {
+var diskIdArray = []
+var diskInsert = null
+
+function startGame () {
+  document.querySelector('startButton').classList.add('recede')
+  for (var i = 0; i < diskList.length; i++) {
+    diskIdArray.push(diskList[i].id)
+  }
+  diskIdArray.sort(function (a, b) { return b - a })
+  for (i = 0; i < diskIdArray.length; i++) {
+    var id = diskIdArray[i]
+    console.log(id)
+    for (var x = 0; x < diskIdArray.length; x++) {
+      if (id === diskList[x].id) {
+        diskList[x].classList.add('drop')
+        document.getElementById('peg1').appendChild(diskList[x])
+      }
+    }
+  }
+}
+// a
+// this for loop drops each disk into the first peg.
+
+function diskEvents () {
   for (var i = 0; i < diskList.length; i++) {
     diskList[i].addEventListener('click', selectDisk)
     /* diskList[i].addEventListener('dragstart', dragFunction) // For letting users drag the disk.
@@ -21,7 +44,7 @@ var currentDisk = null
 var currentDiskId = null
 var diskParentChildrenArray = null
 
-var selectDisk = function () {
+function selectDisk () {
   diskParentChildrenArray = this.parentElement.children
   currentDiskId = diskParentChildrenArray[(diskParentChildrenArray.length - 1)].id
   currentDisk = diskParentChildrenArray.namedItem(currentDiskId)
@@ -73,6 +96,10 @@ var selectPegId = function () {
   if (currentDisk === null) {
   } else if (parseInt(topDiskId) >= parseInt(currentDiskId)) {
     moveDisk()
+    /* if (document.getElementById(pegId).children.length === 5 && pegId !== 'peg1') {
+      alert('VICTORY!')
+    }
+    Victory Alert. Would prefer to have a div element gently pop up in game rather than on browser. */
   } else {
     topDiskColor = pegChildren.namedItem(topDiskId).classList[0]
     alert(`The ${currentDiskColor} block is too big to go on top of the ${topDiskColor} block`)
@@ -91,7 +118,7 @@ topDiskId needs its own function because sometimes the peg has no children givin
 
 var setTopDiskId = function () {
   if (pegChildren.length === 0) {
-    return '999999999' // arbitrarily large number so that any size block can be dropped into an empty tower. 
+    return '999999999' // arbitrarily large number so that any size block can be dropped into an empty tower.
   } else {
     return pegChildren[(pegChildren.length - 1)].id
   }
